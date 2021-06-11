@@ -1,0 +1,43 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <div class="container mt-3">
+        <a href="/lists" class="btn btn-primary js-lists">Afficher les listes</a>
+        <div class="lists"></div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script>
+        window.addEventListener("load", event => {
+            document.querySelector("a.js-lists").addEventListener("click", getLists);
+        });
+
+        function getLists(event) {
+            event.preventDefault();
+
+            axios.get(this.href).then(response => {
+                const lists = document.querySelector("div.lists");
+                if (this.classList.contains("btn-primary")) {
+                    response.data.forEach(list => {
+                        const item = document.createElement("li");
+                        item.textContent = list.name;
+                        item.style.color = list.color;
+                        lists.appendChild(item);
+                    });
+                    this.classList.replace("btn-primary", "btn-warning");
+                    this.textContent = "Masquer les listes";
+                } else {
+                    lists.innerHTML = "";
+                    this.classList.replace("btn-warning", "btn-primary");
+                    this.textContent = "Afficher les listes";
+                }
+            }).catch(error => {
+                console.error(error);
+                window.alert("Une erreur est survenue");
+            });
+        }
+    </script>
+{% endblock %}

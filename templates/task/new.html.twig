@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        {% if app.request.get("_route") == "create_task" %}
+            <h3>Nouvelle tâche pour la liste <span style="color: {{ list.color }}">{{ list.name }}</span></h3>
+        {% else %}
+            <h3>Modifier la tâche {{ task.title }} pour la liste <span style="color: {{ task.list.color }}">{{ task.list.name }}</span></h3>
+        {% endif %}
+
+        {{ include('task/_form.html.twig') }}
+    </div>
+{% endblock %}
