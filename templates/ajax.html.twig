@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container mt-3">
+        <!-- Lien HTML lié au contrôleur permettant la récupération des listes au format JSON -->
+        <a href="/lists" class="btn btn-primary js-lists">Afficher les listes</a>
+        <!-- Définit un espace vide alloué aux futures listes à afficher -->
+        <div class="lists"></div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <!-- Récupération d'axios pour appeler des requêtes HTTP de manière asynchrone -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <!-- Création de mon propre script JavaScript -->
+    <script>
+        window.addEventListener("load", event => { // Lors du chargement de la page 
+            // on ajoute un 'listener' d'évenement 'click' sur le lien HTML 
+            document.querySelector("a.js-lists").addEventListener("click", getLists);
+        });
+
+        // Lorsque le bouton est cliqué, on appelle cette fonction JS 
+        function getLists(event) {
+            event.preventDefault(); // Évite la rediction vers la route '/lists' imposée par le lien HTML 
+
+            // Récupération de la réponse HTTP JSON renvoyée par le contrôleur associé à la route '/lists'
+            axios.get(this.href).then(response => { 
+                const lists = document.querySelector("div.lists"); // Récupération de l'espace alloué aux listes (div)
+                if (this.classList.contains("btn-primary")) {
+                    response.data.forEach(list => { // Parcours les listes situées dans le tableau JSON reçu en réponse 
+                        const item = document.createElement("li"); // Création d'un élément HTML 'li' par liste parcouru
+                        item.textContent = list.name; // Chaque 'li' affiche le nom de la liste parcouru 
+                        item.style.color = list.color; // Chaque 'li' affiche la couleur de la liste parcouru 
+                        lists.appendChild(item); // Ajoute chaque 'li' à l'espace alloué aux listes (div)
+                    });
+                    this.classList.replace("btn-primary", "btn-warning"); // Change le style du bouton Bootstrap
+                    this.textContent = "Masquer les listes"; // Change le contenu du bouton Bootstrap 
+                } else { // Pour masquer les listes : 
+                    lists.innerHTML = ""; // Vide l'espace alloué aux listes (div)
+                    this.classList.replace("btn-warning", "btn-primary"); // Change le style du bouton Bootstrap
+                    this.textContent = "Afficher les listes"; // Change le contenu du bouton Bootstrap 
+                }
+            }).catch(error => { // En cas d'erreur rencontrée lors de la récupération des données 
+                console.error(error); // Affiche l'erreur en console 
+                window.alert("Une erreur est survenue"); // Affiche un message d'erreur via une modale d'alerte
+            });
+        }
+    </script>
+{% endblock %}
+
