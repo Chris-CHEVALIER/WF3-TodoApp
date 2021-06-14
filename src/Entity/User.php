@@ -2,18 +2,18 @@
 
 namespace App\Entity;
 
-use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasher;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity(repositoryClass=UserRepository::class)
+ *@ORM\Entity() 
  */
-class User implements UserInterface, PasswordAuthenticatedUserInterface
-{
+class User implements UserInterface{
     /**
-     * @ORM\Id
+     * @ORM\Id()
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
@@ -21,60 +21,120 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
+     * @Assert\NotBlank(message ="le nom d'utilisateur ne doit pas etre vide")
+     * @Assert\Length(
+     *      min = 1,
+     *      max = 30,
+     *      minMessage = "Ce pseudo est trop court !",
+     *      maxMessage = "Ce pseudo est trop long !"
+     * )
      */
-    private $email;
+    private $username;
 
     /**
      * @ORM\Column(type="json")
      */
     private $roles = [];
 
-    /**
+     /**
+     * @ORM\Column(type="string")
+     * @Assert\Email(message ="votre mail n'est pas un mail valide !")
+     * @Assert\NotBlank(message = "le champ email ne doit pas etre vide !")
+     */ 
+    private $mail; 
+    
+     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
+     * @Assert\NotBlank(message = "le mot de passe ne doit pas etre vide !")
+     * 
      */
-    private $password;
+    private $password; 
 
-    public function getId(): ?int
+    private $passwordHasher;
+
+    public function __construct(UserPasswordHasher   $passwordHasher) {
+        $this->passwordHasher = $passwordHasher;
+    }
+     
+    public function getId()
     {
         return $this->id;
     }
 
-    public function getEmail(): ?string
+   
+    public function setId($id)
     {
-        return $this->email;
+        $this->id = $id;
+
+        return $this;
+    }
+ 
+    public function getMail()
+    {
+        return $this->mail;
     }
 
-    public function setEmail(string $email): self
+    
+    public function setMail($mail)
     {
-        $this->email = $email;
+        $this->mail = $mail;
+
+        return $this;
+    }
+
+  
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+    
+    public function setPassword($password)
+    {
+        $this->password = $this->passwordHasher->hashPassword($this, $password);
 
         return $this;
     }
 
     /**
-     * A visual identifier that represents this user.
-     *
-     * @see UserInterface
-     */
-    public function getUserIdentifier(): string
+     * Get the value of username
+     */ 
+    public function getUsername()
     {
-        return (string) $this->email;
+        return $this->username;
     }
 
     /**
-     * @see UserInterface
-     */
-    public function getRoles(): array
+     * Set the value of username
+     *
+     * @return  self
+     */ 
+    public function setUsername($username)
+    {
+        $this->username = $username;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of roles
+     */ 
+    public function getRoles()
     {
         $roles = $this->roles;
-        // guarantee every user at least has ROLE_USER
         $roles[] = 'ROLE_USER';
 
+        
         return array_unique($roles);
     }
 
-    public function setRoles(array $roles): self
+    /**
+     * Set the value of roles
+     *
+     * @return  self
+     */ 
+    public function setRoles($roles)
     {
         $this->roles = $roles;
 
@@ -82,37 +142,24 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
-     * @see PasswordAuthenticatedUserInterface
-     */
-    public function getPassword(): string
-    {
-        return $this->password;
-    }
+         * @see UserInterface
+         */
+        public function getSalt()
+        {
+                // not needed when using the "bcrypt" algorithm in security.yaml
+        }
 
-    public function setPassword(string $password): self
-    {
-        $this->password = $password;
+        /**
+         * @see UserInterface
+         */
+        public function eraseCredentials()
+        {
+                // If you store any temporary, sensitive data on the user, clear it here
+                // $this->plainPassword = null;
+        }
 
-        return $this;
-    }
-
-    /**
-     * Returning a salt is only needed, if you are not using a modern
-     * hashing algorithm (e.g. bcrypt or sodium) in your security.yaml.
-     *
-     * @see UserInterface
-     */
-    public function getSalt(): ?string
-    {
-        return null;
-    }
-
-    /**
-     * @see UserInterface
-     */
-    public function eraseCredentials()
-    {
-        // If you store any temporary, sensitive data on the user, clear it here
-        // $this->plainPassword = null;
-    }
+        public function getUserIdentifier()
+        {
+            return $this->username;
+        }
 }
