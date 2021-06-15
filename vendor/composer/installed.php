@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => 'a9777b2d829e37c91176243c83b527d4286af072',
+    'reference' => '200ab1dbb9603ae68535a727b162cfa7a2fd46f8',
     'name' => '__root__',
   ),
   'versions' => 
@@ -18,7 +18,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => 'a9777b2d829e37c91176243c83b527d4286af072',
+      'reference' => '200ab1dbb9603ae68535a727b162cfa7a2fd46f8',
     ),
     'composer/package-versions-deprecated' => 
     array (
@@ -157,21 +157,21 @@
     ),
     'doctrine/migrations' => 
     array (
-      'pretty_version' => '3.1.2',
-      'version' => '3.1.2.0',
+      'pretty_version' => '3.1.3',
+      'version' => '3.1.3.0',
       'aliases' => 
       array (
       ),
-      'reference' => '1c2780df6b58998f411e64973cfa464ba0a06e00',
+      'reference' => '8d0c58655cf9d76462d00ec5dd099737e513e86d',
     ),
     'doctrine/orm' => 
     array (
-      'pretty_version' => '2.9.2',
-      'version' => '2.9.2.0',
+      'pretty_version' => '2.9.3',
+      'version' => '2.9.3.0',
       'aliases' => 
       array (
       ),
-      'reference' => '75b4b88c5b7cebc24ed7251a20c2a5aa027300e1',
+      'reference' => '82e77cf5089a1303733f75f0f0ed01be3ab9ec22',
     ),
     'doctrine/persistence' => 
     array (
@@ -329,6 +329,15 @@
       array (
       ),
       'reference' => '62c5909f49cf74dccdf50a294511cc24be2f969c',
+    ),
+    'symfony/apache-pack' => 
+    array (
+      'pretty_version' => 'v1.0.1',
+      'version' => '1.0.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '3aa5818d73ad2551281fc58a75afd9ca82622e6c',
     ),
     'symfony/asset' => 
     array (

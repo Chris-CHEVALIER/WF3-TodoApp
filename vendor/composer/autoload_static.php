@@ -1301,6 +1301,7 @@ class ComposerStaticInitac1a58c7aa1125829cdf3ac427c61e22
         'Doctrine\\ORM\\Mapping\\Driver\\DatabaseDriver' => __DIR__ . '/..' . '/doctrine/orm/lib/Doctrine/ORM/Mapping/Driver/DatabaseDriver.php',
         'Doctrine\\ORM\\Mapping\\Driver\\DriverChain' => __DIR__ . '/..' . '/doctrine/orm/lib/Doctrine/ORM/Mapping/Driver/DriverChain.php',
         'Doctrine\\ORM\\Mapping\\Driver\\PHPDriver' => __DIR__ . '/..' . '/doctrine/orm/lib/Doctrine/ORM/Mapping/Driver/PHPDriver.php',
+        'Doctrine\\ORM\\Mapping\\Driver\\RepeatableAttributeCollection' => __DIR__ . '/..' . '/doctrine/orm/lib/Doctrine/ORM/Mapping/Driver/RepeatableAttributeCollection.php',
         'Doctrine\\ORM\\Mapping\\Driver\\SimplifiedXmlDriver' => __DIR__ . '/..' . '/doctrine/orm/lib/Doctrine/ORM/Mapping/Driver/SimplifiedXmlDriver.php',
         'Doctrine\\ORM\\Mapping\\Driver\\SimplifiedYamlDriver' => __DIR__ . '/..' . '/doctrine/orm/lib/Doctrine/ORM/Mapping/Driver/SimplifiedYamlDriver.php',
         'Doctrine\\ORM\\Mapping\\Driver\\StaticPHPDriver' => __DIR__ . '/..' . '/doctrine/orm/lib/Doctrine/ORM/Mapping/Driver/StaticPHPDriver.php',

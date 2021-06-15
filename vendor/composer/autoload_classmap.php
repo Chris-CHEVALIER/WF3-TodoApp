@@ -824,6 +824,7 @@ return array(
     'Doctrine\\ORM\\Mapping\\Driver\\DatabaseDriver' => $vendorDir . '/doctrine/orm/lib/Doctrine/ORM/Mapping/Driver/DatabaseDriver.php',
     'Doctrine\\ORM\\Mapping\\Driver\\DriverChain' => $vendorDir . '/doctrine/orm/lib/Doctrine/ORM/Mapping/Driver/DriverChain.php',
     'Doctrine\\ORM\\Mapping\\Driver\\PHPDriver' => $vendorDir . '/doctrine/orm/lib/Doctrine/ORM/Mapping/Driver/PHPDriver.php',
+    'Doctrine\\ORM\\Mapping\\Driver\\RepeatableAttributeCollection' => $vendorDir . '/doctrine/orm/lib/Doctrine/ORM/Mapping/Driver/RepeatableAttributeCollection.php',
     'Doctrine\\ORM\\Mapping\\Driver\\SimplifiedXmlDriver' => $vendorDir . '/doctrine/orm/lib/Doctrine/ORM/Mapping/Driver/SimplifiedXmlDriver.php',
     'Doctrine\\ORM\\Mapping\\Driver\\SimplifiedYamlDriver' => $vendorDir . '/doctrine/orm/lib/Doctrine/ORM/Mapping/Driver/SimplifiedYamlDriver.php',
     'Doctrine\\ORM\\Mapping\\Driver\\StaticPHPDriver' => $vendorDir . '/doctrine/orm/lib/Doctrine/ORM/Mapping/Driver/StaticPHPDriver.php',
