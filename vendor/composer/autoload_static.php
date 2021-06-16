@@ -483,15 +483,20 @@ class ComposerStaticInitac1a58c7aa1125829cdf3ac427c61e22
     );
 
     public static $classMap = array (
+        'App\\Controller\\SecurityController' => __DIR__ . '/../..' . '/src/Controller/SecurityController.php',
         'App\\Controller\\TaskController' => __DIR__ . '/../..' . '/src/Controller/TaskController.php',
         'App\\Controller\\TodoListController' => __DIR__ . '/../..' . '/src/Controller/TodoListController.php',
+        'App\\Controller\\UserController' => __DIR__ . '/../..' . '/src/Controller/UserController.php',
         'App\\DataFixtures\\AppFixtures' => __DIR__ . '/../..' . '/src/DataFixtures/AppFixtures.php',
         'App\\Entity\\Task' => __DIR__ . '/../..' . '/src/Entity/Task.php',
         'App\\Entity\\TodoList' => __DIR__ . '/../..' . '/src/Entity/TodoList.php',
+        'App\\Entity\\User' => __DIR__ . '/../..' . '/src/Entity/User.php',
         'App\\Form\\TaskType' => __DIR__ . '/../..' . '/src/Form/TaskType.php',
         'App\\Form\\TodoListType' => __DIR__ . '/../..' . '/src/Form/TodoListType.php',
+        'App\\Form\\UserType' => __DIR__ . '/../..' . '/src/Form/UserType.php',
         'App\\Kernel' => __DIR__ . '/../..' . '/src/Kernel.php',
         'App\\Repository\\TaskRepository' => __DIR__ . '/../..' . '/src/Repository/TaskRepository.php',
+        'App\\Repository\\UserRepository' => __DIR__ . '/../..' . '/src/Repository/UserRepository.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'Collator' => __DIR__ . '/..' . '/symfony/polyfill-intl-icu/Resources/stubs/Collator.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',

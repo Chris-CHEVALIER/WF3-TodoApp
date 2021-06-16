@@ -120,10 +120,10 @@ final class Versions
   'twig/twig' => 'v3.3.2@21578f00e83d4a82ecfa3d50752b609f13de6790',
   'doctrine/data-fixtures' => '1.5.0@51d3d4880d28951fff42a635a2389f8c63baddc5',
   'doctrine/doctrine-fixtures-bundle' => '3.4.0@870189619a7770f468ffb0b80925302e065a3b34',
-  'symfony/polyfill-ctype' => '*@6e410978d3ddffec6e7117582a46f357a41d44d4',
-  'symfony/polyfill-iconv' => '*@6e410978d3ddffec6e7117582a46f357a41d44d4',
-  'symfony/polyfill-php72' => '*@6e410978d3ddffec6e7117582a46f357a41d44d4',
-  '__root__' => 'dev-main@6e410978d3ddffec6e7117582a46f357a41d44d4',
+  'symfony/polyfill-ctype' => '*@ec2691879bfe402843b4e473c83be8df68e7f43e',
+  'symfony/polyfill-iconv' => '*@ec2691879bfe402843b4e473c83be8df68e7f43e',
+  'symfony/polyfill-php72' => '*@ec2691879bfe402843b4e473c83be8df68e7f43e',
+  '__root__' => 'dev-main@ec2691879bfe402843b4e473c83be8df68e7f43e',
 );
 
     private function __construct()

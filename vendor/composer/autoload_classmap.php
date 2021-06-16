@@ -6,15 +6,20 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Controller\\SecurityController' => $baseDir . '/src/Controller/SecurityController.php',
     'App\\Controller\\TaskController' => $baseDir . '/src/Controller/TaskController.php',
     'App\\Controller\\TodoListController' => $baseDir . '/src/Controller/TodoListController.php',
+    'App\\Controller\\UserController' => $baseDir . '/src/Controller/UserController.php',
     'App\\DataFixtures\\AppFixtures' => $baseDir . '/src/DataFixtures/AppFixtures.php',
     'App\\Entity\\Task' => $baseDir . '/src/Entity/Task.php',
     'App\\Entity\\TodoList' => $baseDir . '/src/Entity/TodoList.php',
+    'App\\Entity\\User' => $baseDir . '/src/Entity/User.php',
     'App\\Form\\TaskType' => $baseDir . '/src/Form/TaskType.php',
     'App\\Form\\TodoListType' => $baseDir . '/src/Form/TodoListType.php',
+    'App\\Form\\UserType' => $baseDir . '/src/Form/UserType.php',
     'App\\Kernel' => $baseDir . '/src/Kernel.php',
     'App\\Repository\\TaskRepository' => $baseDir . '/src/Repository/TaskRepository.php',
+    'App\\Repository\\UserRepository' => $baseDir . '/src/Repository/UserRepository.php',
     'Attribute' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
     'Collator' => $vendorDir . '/symfony/polyfill-intl-icu/Resources/stubs/Collator.php',
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
